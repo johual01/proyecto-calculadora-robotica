@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Input from './components/Inputs';
-import { matrix, multiply } from 'mathjs'
+import { matrix, multiply } from 'mathjs';
+import { useState } from 'react';
 
 function Home() {
   const [matriz, setMatriz] = useState(null);
