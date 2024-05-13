@@ -101,8 +101,8 @@ function Home() {
       } else {
         matriz = multiply(matriz, obj[value])
       }
+      console.log(matriz);
     }
-    console.log(matriz);
     return setMatriz(matriz);
   };
   return (
