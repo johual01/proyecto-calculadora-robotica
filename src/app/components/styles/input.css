@@ -5,7 +5,7 @@
 }
 
 .form-row label {
-    width: 100px;
+    width: 125px;
     text-align: right;
     margin-right: 10px;
 }
@@ -16,4 +16,8 @@
 
 .form-row input[type="submit"] {
     width: auto;
+}
+
+.basic-multi-select {
+    width: 800px;
 }

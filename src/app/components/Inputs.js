@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./styles/input.css";
 import Select from 'react-select';
 import { useState } from 'react';
@@ -205,21 +207,6 @@ function Transformaciones2DForm({ funcionOperador }) {
               classNamePrefix="select"
             />
           </div>
-          <br />
-          <div className="form-row">
-            <label htmlFor="resultado">Resultado:</label>
-            <Select
-              value={ result }
-              onChange={ setResult }
-              isMulti
-              id="resultado"
-              name="resultado"
-              options={ options }
-              className="basic-multi-select"
-              classNamePrefix="select"
-            />
-
-          </div>  
           <br />
           <div className="form-row">
             <input type="submit" value="Calcular" />
