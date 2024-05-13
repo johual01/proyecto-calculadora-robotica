@@ -1,0 +1,19 @@
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.form-row input {
+    width: 100px;
+}
+
+.form-row input[type="submit"] {
+    width: auto;
+}
