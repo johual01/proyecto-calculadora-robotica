@@ -34,18 +34,18 @@ function Home() {
   const manejarDatosFormulario = (angulos, traslaciones, puntoInicial, operaciones) => {
     // Aquí puedes hacer lo que necesites con los arrays de angulos y traslaciones
     let obj = {}
-    for (let i = 0; i < angulos.length; i++) {
+    for (let i = 0; i <= angulos.length; i++) {
       const angulo = angulos[i];
       const anguloEnRadianes = angulo * (Math.PI / 180);
-      if (angulo > 0 && angulo < 360) {
+      if (angulo > -360 && angulo < 360) {
         console.log('1')
         if (i == 0) {
           // Es rotacion en eje ox
           obj.rx = matrix(
             [
               [1, 0, 0, 0],
-              [0, Math.cos(anguloEnRadianes), -Math.sin(anguloEnRadianes), 0],
-              [0, Math.sin(anguloEnRadianes), Math.cos(anguloEnRadianes), 0],
+              [0, Math.round(Math.cos(anguloEnRadianes)), Math.round(-Math.sin(anguloEnRadianes)), 0],
+              [0, Math.round(Math.sin(anguloEnRadianes)), Math.round(Math.cos(anguloEnRadianes)), 0],
               [0, 0, 0, 1]
             ]
           )
@@ -55,9 +55,9 @@ function Home() {
           // Es rotacion en eje oy
           obj.ry = matrix(
             [
-              [Math.cos(anguloEnRadianes), 0, Math.sin(anguloEnRadianes), 0],
+              [Math.round(Math.cos(anguloEnRadianes)), 0, Math.round(Math.sin(anguloEnRadianes)), 0],
               [0, 1, 0, 0],
-              [-Math.sin(anguloEnRadianes), 0, Math.cos(anguloEnRadianes), 0],
+              [Math.round(-Math.sin(anguloEnRadianes)), 0, Math.round(Math.cos(anguloEnRadianes)), 0],
               [0, 0, 0, 1]
             ]
           )
@@ -67,8 +67,8 @@ function Home() {
           // Es rotacion en eje oz
           obj.rz = matrix(
             [
-              [Math.cos(anguloEnRadianes), -Math.sin(anguloEnRadianes), 0, 0],
-              [Math.sin(anguloEnRadianes), Math.cos(anguloEnRadianes), 0, 0],
+              [Math.round(Math.cos(anguloEnRadianes)), Math.round(-Math.sin(anguloEnRadianes)), 0, 0],
+              [Math.round(Math.sin(anguloEnRadianes)), Math.round(Math.cos(anguloEnRadianes)), 0, 0],
               [0, 0, 1, 0],
               [0, 0, 0, 1]
             ]
@@ -96,6 +96,8 @@ function Home() {
     let matriz;
     for (let i = 0; i < operaciones.length; i++) {
       const { value } = operaciones[i];
+      console.log(value)
+      console.log(obj)
       if (i == 0) {
         matriz = obj[value]
       } else {
@@ -121,6 +123,9 @@ function Home() {
           <br/>
         }
       </div>
+      <p>
+        {'https://stackoverflow.com/questions/44630265/how-can-i-set-z-up-coordinate-system-in-three-js'}
+      </p>
     </main>
   );
 }

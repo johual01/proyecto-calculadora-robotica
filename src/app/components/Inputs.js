@@ -47,9 +47,9 @@ function Transformaciones2DForm({ funcionOperador }) {
         const inicialesValidas = !isNaN(inicial1Num) && !isNaN(inicial2Num) && !isNaN(inicial3Num);
       
         // Validar que los ángulos estén entre 0 y 360
-        const angulosEnRango = angulo1Num >= 0 && angulo1Num <= 360 && 
-                              angulo2Num >= 0 && angulo2Num <= 360 && 
-                              angulo3Num >= 0 && angulo3Num <= 360;
+        const angulosEnRango = angulo1Num >= -360 && angulo1Num <= 360 && 
+                              angulo2Num >= -360 && angulo2Num <= 360 && 
+                              angulo3Num >= -360 && angulo3Num <= 360;
       
         if (angulosValidos && traslacionesValidas && angulosEnRango && inicialesValidas) {
           // Enviar los datos al componente padre
@@ -62,7 +62,7 @@ function Transformaciones2DForm({ funcionOperador }) {
           funcionOperador(angulos, traslaciones, puntoInicial, operaciones, operaciones);
         } else {
           // Mostrar un mensaje de error si los valores no son válidos
-          alert('Por favor, ingresa valores numéricos válidos y asegúrate de que los ángulos estén entre 0 y 360.');
+          alert('Por favor, ingresa valores numéricos válidos y asegúrate de que los ángulos estén entre -360 y 360.');
         }
       };
   
@@ -115,7 +115,7 @@ function Transformaciones2DForm({ funcionOperador }) {
               type="number"
               id="angulo1"
               name="angulo1"
-              min="0"
+              min="-360"
               max="360"
               step="any"
               value={angulo1}
@@ -130,7 +130,7 @@ function Transformaciones2DForm({ funcionOperador }) {
               type="number"
               id="angulo2"
               name="angulo2"
-              min="0"
+              min="-360"
               max="360"
               step="any"
               value={angulo2}
@@ -145,7 +145,7 @@ function Transformaciones2DForm({ funcionOperador }) {
               type="number"
               id="angulo3"
               name="angulo3"
-              min="0"
+              min="-360"
               max="360"
               step="any"
               value={angulo3}
